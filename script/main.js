@@ -91,7 +91,7 @@ const swiperGallery = new Swiper('.gallery__swiper', {
 //Modal gallery
 
 let modalBg = document.querySelector('.overlay'); // Фон попап окна
-let modal = document.querySelector('.modalp'); // Само окно
+let modal = document.querySelector('.modal'); // Само окно
 let gallerySlide = document.querySelectorAll('.gallery__slider-img'); // Кнопки для показа окна
 let closeModalButton = document.querySelector('.modal__close'); // Кнопка для скрытия окна
 
