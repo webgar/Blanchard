@@ -1,6 +1,6 @@
 //Меню
 $(function () {
-  var Accordion = function (el, multiple) {
+  var navMenu = function (el, multiple) {
     this.el = el || {};
     this.multiple = multiple || false;
 
@@ -10,7 +10,7 @@ $(function () {
     links.on('click', { el: this.el, multiple: this.multiple }, this.dropdown)
   }
 
-  Accordion.prototype.dropdown = function (e) {
+  navMenu.prototype.dropdown = function (e) {
     var $el = e.data.el;
     $this = $(this),
       $next = $this.next();
@@ -23,7 +23,10 @@ $(function () {
     };
   }
 
-  var accordion = new Accordion($('#accordion'), false);
+  var accordion = new navMenu($('#dropDownMenu'), false);
+
+
+  
 });
 
 
@@ -108,4 +111,36 @@ document.addEventListener('click', (e) => { // Вешаем обработчик
     modalBg.classList.remove('active'); // Убираем активный класс с фона
     modal.classList.remove('active'); // И с окна
   }
+});
+
+//Accordion
+$(function () {
+  $("#accordion").accordion({
+    collapsible: true,
+    heightStyle: "content",
+    icons: { "header": false, 
+    "activeHeader": false 
+  },
+  });
+});
+
+document.querySelectorAll('a[href^="#gallery"').forEach(link => {
+
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    let href = this.getAttribute('href').substring(1);
+
+    const scrollTarget = document.getElementById(href);
+
+    const topOffset = 0; //document.querySelector('.gallery').offsetHeight
+    // const topOffset = 0; // если не нужен отступ сверху 
+    const elementPosition = scrollTarget.getBoundingClientRect().top;
+    const offsetPosition = elementPosition - topOffset;
+
+    window.scrollBy({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+  });
 });
