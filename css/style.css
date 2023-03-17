@@ -412,9 +412,6 @@ img {
   padding-top: 109px;
   padding-bottom: 80px;
 }
-.about__content {
-
-}
 .about__text {
   font-size: 16px;
   line-height: 32px;
@@ -871,7 +868,22 @@ input[type="checkbox"]:checked+label:after {
   font-size: 16px;
   line-height: 22px;
   color: var(--color-amethyst);
+  outline: none;
+  width: max-content;
+
 }
+.content-left__link:hover {
+  color: var(--color-royal-purple);
+}
+.content-left__link:focus-within {
+  color: var(--white);
+  background-color: var(--color-heliotrope);
+}
+.content-left__link:active {
+  background-color: inherit;
+}
+
+
 .content-right {
   flex: 1 1 50%;
 }
@@ -979,6 +991,10 @@ input[type="checkbox"]:checked+label:after {
 }
 .content-right__link:focus {
   background-color: var(--color-amethyst);
+}
+.content-right__link:active {
+  color: var(--color-royal-purple);
+  background-color: inherit;
 }
 .content-right__empty {
   justify-content: flex-start;

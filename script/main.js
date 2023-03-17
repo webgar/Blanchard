@@ -143,27 +143,6 @@ $(function () {
   });
 });
 
-document.querySelectorAll('a[href^="#gallery"', 'a[href^="#catalog-content"').forEach(link => {
-
-  link.addEventListener('click', function (e) {
-    e.preventDefault();
-
-    let href = this.getAttribute('href').substring(1);
-
-    const scrollTarget = document.getElementById(href);
-
-    const topOffset = 0; //document.querySelector('.gallery').offsetHeight
-    // const topOffset = 0; // если не нужен отступ сверху 
-    const elementPosition = scrollTarget.getBoundingClientRect().top;
-    const offsetPosition = elementPosition - topOffset;
-
-    window.scrollBy({
-      top: offsetPosition,
-      behavior: 'smooth'
-    });
-  });
-});
-
 $(function () {
   $('a[href^="#"]').click(function () {
     var target = $(this).attr('href');
