@@ -113,6 +113,25 @@ document.addEventListener('click', (e) => { // Вешаем обработчик
   }
 });
 
+//Tabs
+
+const allTabBtns = document.querySelectorAll('.content-right__link');
+
+allTabBtns.forEach(function (tabsBtn) {
+  tabsBtn.addEventListener('click', function (event) {
+
+    // event.preventDefault();//Отменяем клик ссылке
+
+    const path = event.currentTarget.dataset.path
+
+    document.querySelectorAll('.content-left__item').forEach(function (tabContent) {
+      tabContent.classList.remove('content-left__item_active')
+    })
+    document.querySelector(`[data-target="${path}"]`).classList.add('content-left__item_active')
+
+  })
+})
+
 //Accordion
 $(function () {
   $("#accordion").accordion({
@@ -124,7 +143,7 @@ $(function () {
   });
 });
 
-document.querySelectorAll('a[href^="#gallery"').forEach(link => {
+document.querySelectorAll('a[href^="#gallery"', 'a[href^="#catalog-content"').forEach(link => {
 
   link.addEventListener('click', function (e) {
     e.preventDefault();
@@ -144,3 +163,14 @@ document.querySelectorAll('a[href^="#gallery"').forEach(link => {
     });
   });
 });
+
+$(function () {
+  $('a[href^="#"]').click(function () {
+    var target = $(this).attr('href');
+    $('html, body').animate({
+      scrollTop: $
+        (target).offset().top
+    }, 800);
+    return false;
+  })
+})
