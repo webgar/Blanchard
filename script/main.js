@@ -153,3 +153,34 @@ $(function () {
     return false;
   })
 })
+
+//Слайдер события
+
+
+const swiperEvents = new Swiper('.events__swiper', {
+
+  navigation: {
+    nextEl: '.cards-items__button-next',
+    prevEl: '.cards-items__button-prev'
+  },
+  pagination: {
+    el: '.cards-items__swiper-pagination',
+    type: 'fraction'
+  },
+  slidesPerView: 3,
+  spaceBetween: 50,
+  loop: true,
+  freeMode: false,
+  speed: 500,
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+    },
+    480: {
+      slidesPerView: 2,
+    },
+    992: {
+      slidesPerView: 3,
+    },
+  }
+});

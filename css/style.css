@@ -1019,3 +1019,49 @@ input[type="checkbox"]:checked+label:after {
 .content-right__goto:hover {
   color: var(--color-royal-purple);
 }
+
+/*----------Секция Events---------------*/
+.events__container {
+  padding-bottom: 80px;
+}
+.cards-items__wrapper {
+  display: flex;
+}
+.cards-item {
+  position: relative;
+  max-width: 500px;
+  min-height: 700px;
+  padding-bottom: 46px;
+  border: 1px solid var(--color-silver);
+}
+
+.cards-item picture {
+  width: 100%;
+}
+.cards-item__content {
+  padding: 13px 50px 0px 50px;
+}
+.cards-item__desc {
+  display: block; 
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--dusty-grey);
+}
+.cards-item__title {
+  line-height: 33px;
+  margin-bottom: 10px;
+}
+.cards-item__text {
+  font-size: 16px;
+  line-height: 32px;
+  margin-bottom: 66px;
+}
+.cards-item__link {
+  display: inline-block;
+  bottom: 50px;
+  font-size: 16px;
+  line-height: 32px;
+  color: var(--color-amethyst);
+  border-bottom: 1px solid var(--color-amethyst);
+}
