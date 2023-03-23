@@ -58,8 +58,8 @@ const choices = new Choices(element, {
 const swiperGallery = new Swiper('.gallery__swiper', {
 
   navigation: {
-    nextEl: '.gallery__button-next',
-    prevEl: '.gallery__button-prev'
+    nextEl: '.btn-next',
+    prevEl: '.btn-prev'
   },
   pagination: {
     el: '.gallery__swiper-pagination',
@@ -163,14 +163,36 @@ const swiperEvents = new Swiper('.events__swiper', {
     nextEl: '.cards-items__button-next',
     prevEl: '.cards-items__button-prev'
   },
+  slidesPerView: 3,
+  spaceBetween: 50,
+  simulateTouch: false,
+  speed: 500,
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+    },
+    480: {
+      slidesPerView: 2,
+    },
+    992: {
+      slidesPerView: 3,
+    },
+  }
+});
+
+const swiperProjects = new Swiper('.projects__swiper', {
+
+  navigation: {
+    nextEl: '.btn-next',
+    prevEl: '.btn-prev'
+  },
   pagination: {
     el: '.cards-items__swiper-pagination',
     type: 'fraction'
   },
   slidesPerView: 3,
   spaceBetween: 50,
-  loop: true,
-  freeMode: false,
+  simulateTouch: true,
   speed: 500,
   breakpoints: {
     320: {
