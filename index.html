@@ -1108,10 +1108,24 @@
                 Леонтьевский переулок, дом 5/1
               </span>
             </div>
-            <form action="" class="contacts__form">
-              <input class="contacts__input" type="text" name="Name" placeholder="Имя*" required>
-              <input class="contacts__input" type="tel" name="Phone" placeholder="Телефон*" aria-label="Введите ваш телефон" required>
-              <input class="contacts__btn" type="submit" name="btn" value="Заказать обратный звонок">
+            <form id="form" method="POST" autocomplete action="https://jsonplaceholder.typicode.com/posts" class="contacts__form">
+              <div class="contacts__errorlabelname">
+                <!-- <div class="just-validate-error-label">Как вас зовут</div> -->
+                <input id="name" name="name" class="contacts__input" type="text" name="Name" placeholder="Имя*">
+              </div>
+              <div class="contacts__errorlabeltel">
+                <!-- <div class="just-validate-error-label">Недопустимый формат</div> -->
+                <input id="phone" class="contacts__input" type="tel" name="phone" placeholder="Телефон*"
+                  data-reg="^[а-яА-ЯёЁa-zA-Z]+ [а-яА-ЯёЁa-zA-Z]+ ?[а-яА-ЯёЁa-zA-Z]+$" data-validate-feild="tel">
+              </div>
+          
+              <input 
+                id="submit" 
+                class="contacts__btn" 
+                type="submit" 
+                name="btn" 
+                value="Заказать обратный звонок"
+              >
             </form>
             <div class="contacts__social social">
               <h3 class="social__title title_h3">
@@ -1155,7 +1169,9 @@
   <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script src="script/just-validate.min.js"></script>
   <script src="script/swiper-bundle.min.js"></script>
+  <script src="script/inputmask.min.js"></script>
   <script src="script/choices.min.js"></script>
   <script src="script/main.js"></script>
 </body>

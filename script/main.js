@@ -179,7 +179,7 @@ const swiperEvents = new Swiper('.events__swiper', {
     },
   }
 });
-
+//Слайдер Projects
 const swiperProjects = new Swiper('.projects__swiper', {
 
   navigation: {
@@ -206,3 +206,33 @@ const swiperProjects = new Swiper('.projects__swiper', {
     },
   }
 });
+
+//Form
+var selector = document.getElementById("phone");
+
+var im = new Inputmask("+7 (999)-999-99-99");
+im.mask(selector);
+
+const validator = new JustValidate('#form');
+
+validator
+  .addField('#name', [
+    {
+      rule: 'required',
+      errorMessage: 'Как вас зовут',
+    },
+    {
+      rule: 'minLength',
+      value: 3,
+    },
+    {
+      rule: 'maxLength',
+      value: 15,
+    },
+  ])
+  .addField('#phone', [
+    {
+      rule: 'required',
+      errorMessage: 'Недопустимый формат',
+    },
+  ]);

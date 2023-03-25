@@ -1369,6 +1369,19 @@ projects__domen:active {
 .contacts__input:focus {
   background-color: transparent;
 }
+.contacts__errorlabelname,
+.contacts__errorlabeltel {
+  position: relative;
+}
+.just-validate-error-label {
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #D11616;
+  border-color: #D11616;
+}
 .contacts__btn {
   flex: 1 1 36%;
   font-weight: 700;
