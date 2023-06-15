@@ -1340,7 +1340,6 @@ projects__domen:active {
 .contacts__form {
   display: flex;
   justify-content: space-between;
-  flex: 1 1 56.8%;
 }
 .contacts__input,
 .contacts__btn {
@@ -1352,7 +1351,6 @@ projects__domen:active {
 }
 .contacts__input {
   padding: 9px 24px;
-  flex: 1 1 29.7%;
 }
 .contacts__input::placeholder {
   font-weight: 400;
@@ -1363,7 +1361,7 @@ projects__domen:active {
 .contacts__input:hover {
  background-color: var(--color-gallery);
 }
-.contacts__input:focus {
+.contacts__input:active {
   background-color: var(--color-gallery);
 }
 .contacts__input:focus {
@@ -1372,14 +1370,18 @@ projects__domen:active {
 .contacts__errorlabelname,
 .contacts__errorlabeltel {
   position: relative;
+  display: flex;
 }
 .just-validate-error-label {
   position: absolute;
   top: -20px;
-  left: 20px;
+  left: 40px;
   font-size: 12px;
   line-height: 16px;
   color: #D11616;
+ 
+}
+.just-validate-error-field {
   border-color: #D11616;
 }
 .contacts__btn {
@@ -1393,7 +1395,42 @@ projects__domen:active {
   background-color: transparent;
   border-color: var(--color-amethyst);
   cursor: pointer;
+  transition: color 0.5s ease, background-color 0.5s ease;
+}
+.contacts__btn:hover {
+  background-color: var(--color-amethyst);
+  color: var(--white);
+}
+.contacts__btn:active {
+  background-color: transparent;
+  color: var(--white);
+}
+.contacts__btn:focus {
+  background-color: var(--color-royal-purple);
+  color: var(--white);
 }
 .contacts__social {
   margin-left: 70px;
+}
+.social__link {
+  display: inline-block;
+  margin-top: 6px;
+  outline: none;
+  transition: opacity 0.5s ease;
+}
+.social__link-wts {
+  margin-right: 20px;
+}
+.social__link:hover {
+  opacity: 0.5;
+}
+.social__link:active {
+  opacity: 1;
+}
+.social__link:focus {
+  opacity: 0.5;
+}
+.contacts__map {
+  width: 1920px;
+  height: 700px;
 }

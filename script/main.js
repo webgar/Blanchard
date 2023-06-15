@@ -210,7 +210,7 @@ const swiperProjects = new Swiper('.projects__swiper', {
 //Form
 var selector = document.getElementById("phone");
 
-var im = new Inputmask("+7 (999)-999-99-99");
+var im = new Inputmask("+999(99)-999-99-99");
 im.mask(selector);
 
 const validator = new JustValidate('#form');
@@ -224,6 +224,7 @@ validator
     {
       rule: 'minLength',
       value: 3,
+      errorMessage: 'Минимум 3 символа',
     },
     {
       rule: 'maxLength',
@@ -233,6 +234,25 @@ validator
   .addField('#phone', [
     {
       rule: 'required',
+      errorMessage: 'Обязательное поле',
+    },
+    {
+      rule: 'required',
       errorMessage: 'Недопустимый формат',
     },
   ]);
+
+ymaps.ready(init);
+  function init() {
+    // Создание карты.
+    var myMap = new ymaps.Map("map", {
+      // Координаты центра карты.
+      // Порядок по умолчанию: «широта, долгота».
+      // Чтобы не определять координаты центра карты вручную,
+      // воспользуйтесь инструментом Определение координат.
+      center: [55.76, 37.64],
+      // Уровень масштабирования. Допустимые значения:
+      // от 0 (весь мир) до 19.
+      zoom: 7
+    });
+  }
