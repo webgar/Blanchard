@@ -83,6 +83,9 @@ const swiperGallery = new Swiper('.gallery__swiper', {
       slidesPerView: 2,
     },
     992: {
+      slidesPerView: 2,
+    },
+    1025: {
       slidesPerView: 3,
     },
   }
@@ -176,6 +179,11 @@ const swiperEvents = new Swiper('.events__swiper', {
     },
     992: {
       slidesPerView: 3,
+      spaceBetween: 27,
+    },
+    1025: {
+      slidesPerView: 3,
+      spaceBetween: 50,
     },
   }
 });
@@ -202,6 +210,9 @@ const swiperProjects = new Swiper('.projects__swiper', {
       slidesPerView: 2,
     },
     992: {
+      slidesPerView: 2,
+    },
+    1025: {
       slidesPerView: 3,
     },
   }
@@ -241,18 +252,86 @@ validator
       errorMessage: 'Недопустимый формат',
     },
   ]);
-
+  // Yandex Map
 ymaps.ready(init);
   function init() {
-    // Создание карты.
+   
     var myMap = new ymaps.Map("map", {
-      // Координаты центра карты.
-      // Порядок по умолчанию: «широта, долгота».
-      // Чтобы не определять координаты центра карты вручную,
-      // воспользуйтесь инструментом Определение координат.
-      center: [55.76, 37.64],
-      // Уровень масштабирования. Допустимые значения:
-      // от 0 (весь мир) до 19.
-      zoom: 7
+      center: [55.758471093889874, 37.6058091878661],
+      zoom: 14
     });
+  
+    var myPlacemark = new ymaps.Placemark([55.758468, 37.601088], {}, {
+      iconLayout: 'default#image',
+      iconImageHref: '../img/mark.svg',
+      iconImageSize: [20, 20],
+      iconImageOffset: [-3, -42]
+    });
+    myMap.geoObjects.add(myPlacemark);
   }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  const search = document.querySelector('.search-mobile');
+  const searchBtn = document.querySelector('.search-button');
+  const searchInput = document.querySelector('.search-mobile__input');
+  const searchClose = document.querySelector('.search-mobile__close');
+
+  // search Лупа
+
+  searchBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    searchInput.classList.add('search-mobile__input--active');
+    search.classList.add('search-active');
+    searchClose.classList.add('search-mobile__close-active');
+  })
+
+  searchClose.addEventListener('click', (e) => {
+    e.preventDefault();
+    searchInput.classList.remove('search-mobile__input--active');
+    search.classList.remove('search-active');
+    searchClose.classList.remove('search-mobile__close-active');
+  })
+
+  window.addEventListener('click', (event) => {
+    if (!search.contains(event.target)) searchInput.classList.remove('search-mobile__input--active');
+    if (!search.contains(event.target)) search.classList.remove('search-active');
+    if (!search.contains(event.target)) searchClose.classList.remove('search-mobile__close-active');
+  });
+
+
+
+});
+
+
+ // Burger
+window.addEventListener('DOMContentLoaded', function () {
+  document.querySelector('#burger').addEventListener('click', function () {
+    document.querySelector('#menu').classList.toggle('is-active')
+  })
+})
+
+$(document).ready(function () {
+  $('#burger').click(function () {
+    $(this).toggleClass('close');
+  })
+})
+
+//More btn
+function readMore() {
+  var dots = document.getElementById("dots");
+  var moreBtn = document.getElementById("moreBtn");
+  var more = document.getElementById("more");
+
+  if(dots.style.display === "none") {
+    dots.style.display="inline";
+    moreBtn.style.display = "Подробнее";
+    more.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    moreBtn.innerHTML= "Скрыть";
+    more.style.display = "inline";
+  }
+}
+
